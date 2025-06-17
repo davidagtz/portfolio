@@ -23,7 +23,9 @@
                             {%- if my_page.title == "About Me" -%}
                                 <a class="page-link" id="about-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
                             {%- else -%}
-                                <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                                {%- if my_page.hidden  != true -%}
+                                    <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                                {%- endif -%}
                             {%- endif -%}
                         {%- endif -%}
                     {%- endfor -%}
